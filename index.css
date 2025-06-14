@@ -1,0 +1,251 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a2e; /* Dark blue, night sky like */
+    color: #e0e0e0; /* Light gray for text */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #24243e; /* Slightly lighter card background */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #4a4a6a;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    color: #87CEFA; /* Light sky blue */
+    margin-bottom: 5px;
+    font-size: 2em;
+}
+
+header h1 .star-icon {
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+
+header p {
+    font-size: 0.9em;
+    color: #b0b0d0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+input[type="file"] {
+    display: none; /* Hide the default input */
+}
+
+.upload-button {
+    background-color: #007bff; /* Bright blue */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.upload-button:hover, .upload-button:focus {
+    background-color: #0056b3; /* Darker blue */
+    outline: 2px solid #87CEFA;
+}
+
+button {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: #1e7e34; /* Darker green */
+}
+
+
+.image-preview-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 2px dashed #4a4a6a;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#imagePreview {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 3px;
+}
+
+.spinner {
+    margin: 20px auto;
+    width: 100px;
+    text-align: center;
+    display: flex; /* Changed from none */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: #87CEFA;
+    border-radius: 100%;
+    display: inline-block;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+    animation-delay: -0.16s;
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1.0);
+    }
+}
+
+.spinner p {
+    color: #b0b0d0;
+    font-size: 0.9em;
+}
+
+.caption-output-section {
+    background-color: #1e1e36; /* Darker than card, for emphasis */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #4a4a6a;
+}
+
+.caption-output-section h2 {
+    margin-top: 0;
+    color: #87CEFA;
+    font-size: 1.3em;
+    border-bottom: 1px solid #4a4a6a;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.caption-output {
+    font-size: 1.1em;
+    line-height: 1.7;
+    white-space: pre-wrap; /* Preserve formatting from AI if any, but prompt asks for single line */
+    word-wrap: break-word;
+    color: #f0f0f0;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #2a2a4a;
+    border-radius: 4px;
+}
+
+.copy-button {
+    background-color: #6c757d; /* Gray */
+    margin-top: 10px;
+    display: inline-block; /* Initially hidden, shown by JS */
+}
+
+.copy-button:hover {
+    background-color: #5a6268;
+}
+
+.copy-feedback {
+    font-size: 0.9em;
+    color: #28a745; /* Green for success */
+    margin-top: 8px;
+    height: 1em; /* Reserve space */
+}
+
+
+.error-output {
+    color: #ff6b6b; /* Light red for errors */
+    background-color: rgba(255, 107, 107, 0.1);
+    border: 1px solid #ff6b6b;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #4a4a6a;
+    font-size: 0.8em;
+    color: #b0b0d0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .upload-button, button {
+        font-size: 0.95em;
+        padding: 10px 20px;
+    }
+
+    .caption-output {
+        font-size: 1em;
+    }
+}
